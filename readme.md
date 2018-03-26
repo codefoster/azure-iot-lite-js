@@ -52,5 +52,7 @@ import { HubClient } from 'hubclient';
 let iothub = new HubClient('<connection string>');
 await iothub.ready;
 
-iothub.addDirectMethod(')
+iothub.addDirectMethod('updateFirmware', (request, response) => {
+    //update the firmware
+});
 ```
