@@ -50,3 +50,5 @@ jspm_packages
 # TypeScript - ignore derivative JS files
 **/*.js
 **/*.js.map
+
+.env
