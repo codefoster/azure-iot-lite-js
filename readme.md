@@ -1,7 +1,7 @@
 # Azure IoT Lite
 This package makes it easier to connect to an Azure IoT Hub. It provides a very simple and sensible asynchronous flow for the client's connection and the creation of a device twin.
 
-So far, this is an early release. Expect a lot of missing functionality. Contributions welcome.
+So far, this is an **early release**. Expect a lot of missing functionality. Contributions welcome.
 
 ## Installation
 
