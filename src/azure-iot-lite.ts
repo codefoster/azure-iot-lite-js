@@ -7,14 +7,16 @@ require('dotenv').config();
 export class HubClient {
     private client: Client;
     deviceId: string;
+    hostName: string;
     twin: Twin;
     ready;
 
     public constructor(private connectionString: string, private protocol: TransportProtocol = TransportProtocol.Amqp) {
         this.connectionString = connectionString;
         
-        //extract the device id from the connection string
+        //extract properties from the connection string
         this.deviceId = /DeviceId=([^;]*)/.exec(this.connectionString)[1];
+        this.hostName = /HostName=([^;]*)/.exec(this.connectionString)[1];
 
         // this stores the Promise itself (not the Promise's payload) to a
         // property called ready so we can "await <hub>.ready" from anywhere
