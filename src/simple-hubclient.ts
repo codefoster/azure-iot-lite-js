@@ -1,23 +1,28 @@
 import { HubClient, Twin } from "./azure-iot-lite";
-let iothub = new HubClient('{ CONNECTION STRING }');
+let iothub = new HubClient(process.env.DEVICE_CONN_STRING);
+
+main();
 
 async function main() {
+    console.log('starting iot hub...');
     await iothub.ready;
+    console.log('hub ready...');
     
-    iothub.sendMessage('test');
-
+    console.log('sending message...');
+    iothub.sendMessage(`Hi, cloud. I'm a device!`);
+    
     iothub.handleMessage(message => {
-        //handle message
+        console.log(`The cloud sent us ${message}`);
     });
 
     iothub.addDirectMethod('installFirmware', () => {
         //install firmware
     });
 
-    iothub.twin.on('properties.desired.temperature', delta => {
+    iothub.twin.on('properties.desired.propety1', delta => {
         //handle desired property change
     });
 
-    iothub.twin.properties.reported.update({ temperature: 72 });
+    // iothub.twin.properties.reported.update({ property1: 72 });
 }
 

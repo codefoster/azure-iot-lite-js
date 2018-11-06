@@ -13,7 +13,7 @@ export class HubClient {
 
     public constructor(private connectionString: string, private protocol: TransportProtocol = TransportProtocol.Amqp) {
         this.connectionString = connectionString;
-        
+
         //extract properties from the connection string
         this.deviceId = /DeviceId=([^;]*)/.exec(this.connectionString)[1];
         this.hostName = /HostName=([^;]*)/.exec(this.connectionString)[1];
