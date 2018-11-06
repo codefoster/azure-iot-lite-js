@@ -26,7 +26,7 @@ export class HubClient {
     async initialize() {
         //import the appropriate protocol package
         let protocolPackageName = 'azure-iot-device-';
-        switch(this.protocol) {
+        switch (this.protocol) {
             case TransportProtocol.Amqp: protocolPackageName += 'amqp'; break;
             case TransportProtocol.Http: protocolPackageName += 'http'; break;
             case TransportProtocol.Mqtt: protocolPackageName += 'mqtt'; break;
@@ -40,10 +40,12 @@ export class HubClient {
                 if (!err) {
                     //get the device twin
                     this.client.getTwin((err, twin) => {
-                        if (!err) this.twin = twin;
+                        if (!err) {
+                            this.twin = twin;
+                            resolve();
+                        }
                         else reject(err);
                     });
-                    resolve()
                 }
                 else
                     reject(err);
