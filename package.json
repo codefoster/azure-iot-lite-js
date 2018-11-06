@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha lib --exit"
   },
-  "keywords": ["azure","iot"],
+  "keywords": [
+    "azure",
+    "iot"
+  ],
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
   "license": "Apache-2.0",
   "dependencies": {
