@@ -24,5 +24,6 @@ async function main() {
     });
 
     // iothub.twin.properties.reported.update({ property1: 72 });
-}
 
+    process.exit();
+}
