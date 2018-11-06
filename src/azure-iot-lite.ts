@@ -62,10 +62,7 @@ export class HubClient {
      * Sends a D2C message. The deviceId is added to the payload and payload is added to a 'value' property.
      */
     sendMessage(payload: any) {
-        let message = new Message(JSON.stringify({
-            deviceId: this.deviceId,
-            value: payload
-        }));
+        let message = new Message(JSON.stringify(payload));
         this.client.sendEvent(message, (err, res) => {
             if (err) console.log(err);
         });
